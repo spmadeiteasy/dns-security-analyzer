@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14202e"><title>DNS Security Analyzer</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">D</div><div><strong>DomainScope</strong><small>SECURITY ANALYZER</small></div></div>
+    <div class="side-label">WORKSPACE</div><button class="nav active" data-view="lookup"><span>⌕</span> DNS Lookup</button>
+    <button class="nav" data-view="batch"><span>▤</span> Batch Analysis</button>
+    <div class="side-label about-label">PROJECT</div>
+    <div class="side-note"><span class="live-dot"></span> Public data analysis<br><small>DNS · Email auth · RDAP</small></div>
+    <div class="sidebar-bottom"><div class="avatar">SP</div><div><strong>Cybersecurity Lab</strong><small>Educational project</small></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">NETWORK INTELLIGENCE / DNS</div><h1 id="pageTitle">DNS Lookup</h1></div><div class="top-right"><span class="api-status"><i></i> API connected</span><a href="/docs" target="_blank" rel="noreferrer" class="docs-link">API docs ↗</a></div></header>
+    <section class="hero"><div><div class="hero-kicker">DOMAIN INTELLIGENCE</div><h2>Understand what's behind a domain.</h2><p>Inspect DNS infrastructure, email authentication and public registration data in one place.</p></div><div class="hero-art"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="globe">◎</div><span class="node node-a">DNS</span><span class="node node-b">TLS</span><span class="node node-c">MX</span></div></section>
+    <section class="panel search-panel" id="lookupView">
+      <div class="panel-heading"><div><span class="step">01</span><h3>Target configuration</h3></div><span class="hint">Enter a domain, URL or IP address</span></div>
+      <form id="lookupForm"><div class="search-row"><div class="search-input-wrap"><span class="search-icon">⌕</span><input id="target" autocomplete="off" spellcheck="false" value="google.com" placeholder="example.com" aria-label="Domain or IP address" required></div><button class="primary-btn" id="lookupBtn">Analyze domain <span>→</span></button></div>
+      <div class="options-grid"><label class="toggle"><input type="checkbox" id="records" checked><span class="toggle-ui"></span><span><b>DNS records</b><small>A, AAAA, MX, NS, TXT, CNAME, SOA, CAA</small></span></label><label class="toggle"><input type="checkbox" id="email" checked><span class="toggle-ui"></span><span><b>Email security</b><small>SPF, DMARC and common DKIM selectors</small></span></label><label class="toggle"><input type="checkbox" id="rdap" checked><span class="toggle-ui"></span><span><b>Registration data</b><small>Registrar, dates and nameservers</small></span></label></div>
+      <details class="advanced"><summary>Advanced settings <span>＋</span></summary><div class="advanced-inner"><label for="dnsServer">Custom public DNS resolver <small>Optional IP address, e.g. 1.1.1.1</small></label><input id="dnsServer" placeholder="System default resolver"></div></details>
+      </form>
+    </section>
+    <section class="panel batch-panel hidden" id="batchView"><div class="panel-heading"><div><span class="step">01</span><h3>Batch analysis</h3></div><span class="hint">Up to 20 domains or IP addresses</span></div><textarea id="batchTargets" rows="6" placeholder="google.com&#10;cloudflare.com&#10;8.8.8.8"></textarea><div class="batch-actions"><p>Enter one target per line. Current analysis options will be applied.</p><button class="primary-btn" id="batchBtn">Analyze targets <span>→</span></button></div></section>
+    <div id="status" class="status" role="status" aria-live="polite">Ready when you are. Enter a target to begin.</div>
+    <section id="results" class="results hidden"></section>
+    <footer>DNS LOOKUP & DOMAIN SECURITY ANALYZER <span>Educational use · Public data · v1.0</span></footer>
+  </main>
+</div>
+<script src="/static/app.js"></script>
+</body></html>
